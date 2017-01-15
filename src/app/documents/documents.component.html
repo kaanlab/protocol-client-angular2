@@ -1,0 +1,31 @@
+<md-card class="half-card" *ngFor="let document of documents" [ngClass]="{greenClass: document.isPublished}">
+    <md-card-header *ngIf="document.isProject" mdTooltip="Проект № {{document.projectNumber}}" mdTooltipPosition="below">   
+      <md-icon md-card-avatar>assignment</md-icon>
+        <md-card-title>
+          <span>№ {{document.projectNumber}}</span>
+          <span class="date-format">Дата: {{document.registrationDate | date: 'dd-MM-y'}}</span>
+        </md-card-title>
+        <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-header *ngIf="document.isPublished" mdTooltip="Утвержден № {{document.publicationNumber}}" mdTooltipPosition="below">
+      <md-icon md-card-avatar>check_circle</md-icon>
+        <md-card-title>
+          <span>№ {{document.publicationNumber}}</span>
+          <span class="date-format">Дата: {{document.publicationDate | date: 'dd-MM-y'}}</span>
+        </md-card-title>
+        <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>            
+   </md-card-header> 
+   <md-card-content *ngIf="document.isProject">        
+        <p>Поступил: {{document.sender?.name}}</p>
+        <p>Исполнитель: {{document.contactName}}</p>
+        <md-divider></md-divider>
+        <p>{{document.projectDescription}}</p>
+   </md-card-content>
+      <md-card-content *ngIf="document.isPublished">        
+        <p>Подписан: {{document.publicationSignature}}</p>
+   </md-card-content>
+      <md-card-actions>
+        <button md-button (click)="onSelect(document)">ПОДРОБНО</button>
+        <button md-button *ngIf="document.isPublished">PDF</button>
+   </md-card-actions>  
+</md-card>

@@ -1,0 +1,25 @@
+md-sidenav-container {
+  height: 85vh;
+  flex: 1;
+
+  md-sidenav {
+    width: 60vw;
+  }
+}
+
+.hidden{
+  display: none !important;
+}
+
+.footer {
+  padding: 1em;
+  height: 46px;  
+  background-color: #e3ddff;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  md-sidenav-container md-sidenav {
+    width: 20vw;
+  }
+}

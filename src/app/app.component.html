@@ -1,0 +1,68 @@
+  <div class="sidenav-content">
+    <md-toolbar color="primary">
+      <button md-icon-button [ngClass]="{'hidden': this.isHidden}" (click)="sidenav.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
+      <span class="hidden-on-mobile">Учет проектов нормативных актов</span>
+      
+      <span class="fill-remaining-space"></span>
+      <a md-icon-button mdTooltip="Вход">
+        <i class="material-icons">input</i>
+      </a>
+      <a md-icon-button  mdTooltip="Профиль">
+        <i class="material-icons">person</i>
+      </a>
+      <a md-icon-button  mdTooltip="Выход">
+        <i class="material-icons">power_settings_new</i>
+      </a>
+    </md-toolbar>
+  </div>
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav mode="side" class="example-sidenav">
+    <md-list>
+      <md-list-item>
+        <span>Меню</span>
+        <span class="fill-remaining-space"></span>
+        <button md-icon-button (click)="sidenav.toggle()">
+          <i class="material-icons">cancel</i>
+        </button>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item>
+        <button md-button routerLink="document/add" routerLinkActivate="active">
+          <md-icon>note_add</md-icon>
+          Новый
+        </button>
+        </md-list-item>
+      <md-list-item><a >Проекты</a></md-list-item>
+      <md-list-item><a >Нормативные акты</a></md-list-item>
+      <md-divider></md-divider>
+      <md-list-item>
+        <span>Поиск</span>
+      </md-list-item>
+      <md-list-item>
+        <i class="material-icons">search</i>
+          <md-input-container>
+            <input md-input placeholder="введите запрос...">
+          </md-input-container>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+ 
+  <router-outlet></router-outlet> 
+ 
+</md-sidenav-container>
+
+<footer class="footer">
+    <div class="container">
+      <p class="text-muted">
+        <small>
+          <a >Terms and conditions</a>
+        </small>
+        <small appHighlight>
+          <a >About</a>
+        </small>
+      </p>
+    </div>
+  </footer>

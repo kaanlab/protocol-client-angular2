@@ -1,0 +1,64 @@
+<md-card class="full-card" [ngClass]="{greenClass: document.isPublished}">
+  <md-card-header *ngIf="document.isProject">   
+      <md-icon md-card-avatar>assignment</md-icon>
+        <md-card-title>
+          <span>№ {{document.projectNumber}}</span>
+          <span class="date-format">Дата: {{document.registrationDate | date: 'dd-MM-y'}}</span>
+        </md-card-title>
+        <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-header *ngIf="document.isPublished">
+      <md-icon md-card-avatar>check_circle</md-icon>
+        <md-card-title>
+          <span>№ {{document.publicationNumber}}</span>
+          <span class="date-format">Дата: {{document.publicationDate | date: 'dd-MM-y'}}</span>
+        </md-card-title>
+        <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>            
+   </md-card-header> 
+   <md-card-content>
+     <div *ngIf="document.isPublished"> 
+       <md-divider></md-divider>
+       <h3 md-subheader>Подписан:</h3>       
+        <p>{{document.publicationSignature}}</p>
+     </div>
+     <md-divider></md-divider>
+     <h3 md-subheader>Поступил:</h3>        
+        <p>{{document.sender?.name}}</p>
+        <p>Исполнитель: {{document.contactName}}</p>
+        <p>Телефон: {{document.contactPhone}}</p>
+        <p>Примечания: {{document.projectDescription}}</p>      
+        <md-divider></md-divider>        
+        <h3 md-subheader>Согласования:</h3>
+        <md-grid-list cols="7" rowHeight="80px" *ngFor="let agreement of document.agreements">
+          <md-grid-tile>
+            <md-icon md-list-avatar>account_balance</md-icon> {{agreement.authorityAgreement.name}}
+          </md-grid-tile>
+          <md-grid-tile>
+            <md-icon md-list-avatar>arrow_forward</md-icon>
+            <md-icon md-list-avatar>arrow_forward</md-icon>
+          </md-grid-tile>
+          <md-grid-tile>
+            <md-icon md-list-avatar>timer</md-icon> {{agreement.date | date: 'dd-MM-y'}}
+          </md-grid-tile>
+          <md-grid-tile>
+            <md-icon md-list-avatar>arrow_forward</md-icon>
+            <md-icon md-list-avatar>arrow_forward</md-icon>
+          </md-grid-tile>
+          <md-grid-tile>             
+            <md-icon md-list-avatar>timer_off</md-icon> {{agreement.returnDate | date: 'dd-MM-y'}}
+          </md-grid-tile>
+          <md-grid-tile>
+            <md-icon md-list-avatar>arrow_forward</md-icon>
+            <md-icon md-list-avatar>arrow_forward</md-icon>
+          </md-grid-tile>
+          <md-grid-tile>            
+            <md-icon md-list-avatar>assignment_turned_in</md-icon> {{agreement.agreementSignature}}
+          </md-grid-tile>
+        </md-grid-list>
+   </md-card-content>   
+   <md-card-actions>
+        <button md-button (click)="goBack()">НАЗАД</button>        
+        <button md-button>РЕДАКТИРОВАТЬ</button>
+        <button md-button *ngIf="document.isPublished">PDF</button>
+   </md-card-actions>   
+</md-card>
