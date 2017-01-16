@@ -1,0 +1,17 @@
+<md-card class="half-card" *ngFor="let document of documents" [ngClass]="{greenClass: !document.isProject}">    
+    <md-card-header mdTooltip="Утвержден № {{document.publicationNumber}}" mdTooltipPosition="below">
+      <md-icon md-card-avatar>check_circle</md-icon>
+        <md-card-title>
+          <span>№ {{document.publicationNumber}}</span>
+          <span class="date-format">Дата: {{document.publicationDate | date: 'dd-MM-y'}}</span>
+        </md-card-title>
+        <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>            
+   </md-card-header> 
+      <md-card-content>        
+        <p>Подписан: {{document.publicationSignature}}</p>
+   </md-card-content>
+      <md-card-actions>
+        <button md-button (click)="onSelect(document)">ПОДРОБНО</button>
+        <button md-button>PDF</button>
+   </md-card-actions>  
+</md-card>

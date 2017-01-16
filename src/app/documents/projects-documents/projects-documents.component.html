@@ -1,0 +1,19 @@
+<md-card class="half-card" *ngFor="let document of documents">
+    <md-card-header mdTooltip="Проект № {{document.projectNumber}}" mdTooltipPosition="below">   
+      <md-icon md-card-avatar>assignment</md-icon>
+        <md-card-title>
+          <span>№ {{document.projectNumber}}</span>
+          <span class="date-format">Дата: {{document.registrationDate | date: 'dd-MM-y'}}</span>
+        </md-card-title>
+        <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>
+    </md-card-header>     
+    <md-card-content>        
+        <p>Поступил: {{document.sender?.name}}</p>
+        <p>Исполнитель: {{document.contactName}}</p>
+        <md-divider></md-divider>
+        <p>{{document.projectDescription}}</p>
+    </md-card-content>   
+      <md-card-actions>
+        <button md-button (click)="onSelect(document)">ПОДРОБНО</button>        
+   </md-card-actions>  
+</md-card>

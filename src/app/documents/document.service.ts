@@ -9,11 +9,27 @@ import { Document } from './document';
 export class DocumentService {
 
   private documentsUrl = 'http://localhost:53702/api/documents';
+  private publishedUrl = 'http://localhost:53702/api/published';
+  private projectsUrl = 'http://localhost:53702/api/projects';
 
   constructor(private http: Http) { }
 
   getDocuments(): Promise<Array<Document>> {
         return this.http.get(this.documentsUrl)
+                        .toPromise()
+                        .then(response => response.json() as Array<Document>)
+                        .catch(this.handleError);
+  }
+
+  getPublishedDocuments(): Promise<Array<Document>> {
+        return this.http.get(this.publishedUrl)
+                        .toPromise()
+                        .then(response => response.json() as Array<Document>)
+                        .catch(this.handleError);
+  }
+
+  getProjectsDocuments(): Promise<Array<Document>> {
+        return this.http.get(this.projectsUrl)
                         .toPromise()
                         .then(response => response.json() as Array<Document>)
                         .catch(this.handleError);

@@ -14,6 +14,8 @@ import { DocumentTypesComponent } from './document-types/document-types.componen
 import { SendersComponent } from './senders/senders.component';
 import { AgreementsComponent } from './agreements/agreements.component';
 import { AuthorityAgreementsComponent } from './agreements/authority-agreements/authority-agreements.component';
+import { PublishedDocumentsComponent } from './documents/published-documents/published-documents.component';
+import { ProjectsDocumentsComponent } from './documents/projects-documents/projects-documents.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AuthorityAgreementsComponent } from './agreements/authority-agreements/
     DocumentTypesComponent,
     SendersComponent,
     AgreementsComponent,
-    AuthorityAgreementsComponent
+    AuthorityAgreementsComponent,
+    PublishedDocumentsComponent,
+    ProjectsDocumentsComponent
   ],
   imports: [
     BrowserModule,

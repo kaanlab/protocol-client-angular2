@@ -18,31 +18,50 @@
     </md-toolbar>
   </div>
 
-<md-sidenav-container class="example-container">
-  <md-sidenav #sidenav mode="side" class="example-sidenav">
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="side">
     <md-list>
       <md-list-item>
         <span>Меню</span>
         <span class="fill-remaining-space"></span>
         <button md-icon-button (click)="sidenav.toggle()">
-          <i class="material-icons">cancel</i>
+          <md-icon>cancel</md-icon>
         </button>
       </md-list-item>
       <md-divider></md-divider>
       <md-list-item>
-        <button md-button routerLink="document/add" routerLinkActivate="active">
-          <md-icon>note_add</md-icon>
-          Новый
+        <button md-button routerLink="documents">
+          <md-icon>home</md-icon>
+          На главную
         </button>
         </md-list-item>
-      <md-list-item><a >Проекты</a></md-list-item>
-      <md-list-item><a >Нормативные акты</a></md-list-item>
+      <md-divider></md-divider>
+      <md-list-item>
+        <button md-button routerLink="document/add">
+          <md-icon>note_add</md-icon>
+          Новый проект
+        </button>
+        </md-list-item>        
+        <md-divider></md-divider>
+      <md-list-item>
+        <button md-button routerLink="documents/projects">
+          <md-icon>assignment</md-icon>
+          Проекты
+        </button>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item>
+        <button md-button routerLink="documents/published">
+          <md-icon>check_circle</md-icon>
+          Утвержденные акты
+        </button>
+      </md-list-item>
       <md-divider></md-divider>
       <md-list-item>
         <span>Поиск</span>
       </md-list-item>
       <md-list-item>
-        <i class="material-icons">search</i>
+        <md-icon>search</md-icon>
           <md-input-container>
             <input md-input placeholder="введите запрос...">
           </md-input-container>
