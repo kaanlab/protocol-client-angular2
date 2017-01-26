@@ -15,13 +15,15 @@
         </md-card-title>
         <md-card-subtitle>{{document.documentType?.name}}</md-card-subtitle>            
    </md-card-header> 
-   <md-card-content *ngIf="document.isProject">        
+   <md-card-content *ngIf="document.isProject"> 
+     <md-divider></md-divider>       
         <p>Поступил: {{document.sender?.name}}</p>
-        <p>Исполнитель: {{document.contactName}}</p>
-        <md-divider></md-divider>
+        <p>Исполнитель: {{document.contactName}}</p>        
         <p>{{document.projectDescription}}</p>
+        <md-divider></md-divider>
    </md-card-content>
-      <md-card-content *ngIf="!document.isProject">        
+      <md-card-content *ngIf="!document.isProject">
+        <md-divider></md-divider>        
         <p>Подписан: {{document.publicationSignature}}</p>
    </md-card-content>
       <md-card-actions>
